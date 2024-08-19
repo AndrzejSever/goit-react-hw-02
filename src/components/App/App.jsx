@@ -8,7 +8,13 @@ import Options from "../Options/Options";
 export default function App() {
  const [clicks, setClicks] = useState(() => {
   const savedClicks = window.localStorage.getItem("saved-clicks");
-  return savedClicks !== null ? JSON.parse(savedClicks) : 0;
+  return savedClicks !== null
+   ? JSON.parse(savedClicks)
+   : {
+      good: 0,
+      neutral: 0,
+      bad: 0,
+     };
  });
 
  const totalFeedback = clicks.good + clicks.neutral + clicks.bad;
